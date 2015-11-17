@@ -12,6 +12,7 @@ script:
   - docker login -e="${DOCKER_EMAIL}" -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
   - docker -v
   - make docker
+  - tail -n 1000 /tmp/buildlog.txt
 
 env:
   global:
