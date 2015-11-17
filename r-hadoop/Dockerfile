@@ -9,7 +9,7 @@ RUN sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/a
 RUN ln -s /usr/lib/jvm/java-7-openjdk-amd64/ /usr/lib/jvm/default-java
 RUN R -e "install.packages(c('rJava', 'caTools', 'Rcpp', 'RJSONIO', 'bitops', 'digest', 'functional', 'stringr', 'plyr', 'reshape2'), repos='http://cran-mirror.cs.uu.nl')"
 
-RUN wget --quiet http://sourceforge.net/projects/boost/files/boost/1.53.0/boost_1_53_0.tar.gz && tar xf boost_1_53_0.tar.gz && cd boost_1_53_0 && ./b2 install
+RUN wget --quiet http://sourceforge.net/projects/boost/files/boost/1.53.0/boost_1_53_0.tar.gz && tar xf boost_1_53_0.tar.gz && cd boost_1_53_0 && ./bootstrap.sh && ./b2 install
 RUN bash -c 'git clone --depth 1 --branch 0.9.3 https://git-wip-us.apache.org/repos/asf/thrift.git && cd thrift && ./bootstrap.sh && ./configure --with-boost=/usr/local --with-lua=no && make && make install && cd ..'
 
 # Thrift/RHbase hacks
