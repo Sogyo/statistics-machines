@@ -15,7 +15,7 @@ RUN git clone --depth 1 --branch 0.9.3 https://git-wip-us.apache.org/repos/asf/t
 # Thrift/RHbase hacks
 ADD thrift.pc /usr/local/lib/pkgconfig/thrift.pc
 ADD thrift-nb.pc /usr/local/lib/pkgconfig/thrift-nb.pc
-RUN cp /usr/local/lib/libthrift-0.9.3-dev.so /usr/lib/.
+RUN cp /usr/local/lib/libthrift-0.9.3.so /usr/lib/.
 
 RUN wget --quiet https://github.com/RevolutionAnalytics/rhbase/blob/master/build/rhbase_1.2.1.tar.gz?raw=true -O rhbase_1.2.1.tar.gz && R -e "install.packages('/opt/rhbase_1.2.1.tar.gz', repos = NULL, type='source')" && rm rhbase_1.2.1.tar.gz
 RUN wget --quiet https://github.com/RevolutionAnalytics/rhdfs/blob/master/build/rhdfs_1.0.8.tar.gz?raw=true -O rhdfs_1.0.8.tar.gz && R -e "install.packages('/opt/rhdfs_1.0.8.tar.gz', repos = NULL, type='source')" && rm rhdfs_1.0.8.tar.gz
